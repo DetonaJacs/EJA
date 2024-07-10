@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJA no Brasil</title>
+    <link rel="icon" href="./img/logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f1f1f6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative; /* Define posição relativa para permitir posicionamento absoluto do botão */
+        }
+
+        .container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #272424;
+            max-width: 600px;
+        }
+
+        .slogan {
+            margin-bottom: 20px;
+        }
+
+        .Docente {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .alunos {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .timeline-button {
+            display: inline-block;
+            background-color: #be9fe1;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px; /* Espaçamento para o botão de acesso à área privada */
+        }
+
+        .timeline-button:hover {
+            background-color: #8b5ea8;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        /* Novos estilos */
+        .project-description {
+            margin-bottom: 30px;
+            color: #555;
+            max-width: 600px; /* Mesma largura da imagem */
+            margin: 0 auto; /* Centraliza horizontalmente */
+            text-align: justify; /* Justifica o texto */
+        }
+
+        .project-description p {
+            margin: 0;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        /* Estilos para os links */
+        .alunos a {
+            color: #333; /* Cor dos links */
+            text-decoration: none; /* Remove o sublinhado */
+        }
+
+        /* Estilos para os links quando passar o mouse */
+        .alunos a:hover {
+            color: #666; /* Altera a cor quando o mouse passa por cima */
+        }
+
+        /* Estilos para o botão de área apresentação */
+        .apresentação {
+            position: absolute;
+            top: 20px; /* Distância do topo */
+            right: 20px; /* Distância da direita */
+            background-color: #ccc; /* Cor de fundo cinza */
+            width: 40px; /* Largura da bolinha */
+            height: 40px; /* Altura da bolinha */
+            border-radius: 50%; /* Forma circular */
+            display: flex; /* Alinha o conteúdo ao centro verticalmente */
+            justify-content: center; /* Alinha o conteúdo ao centro horizontalmente */
+            align-items: center; /* Alinha o conteúdo ao centro verticalmente */
+            color: #333; /* Cor do ícone */
+            font-size: 24px; /* Tamanho do ícone */
+            cursor: pointer; /* Altera o cursor para indicar que é clicável */
+        }
+
+        /* Estilos para o botão do VLibras */
+        .vlibras-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #6f6f6f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .vlibras-btn:hover {
+            background-color: #4f4f4f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="./UEMG.png" alt="UEMG" width="100">
+        </div>
+        <h1>EJA - Educação de Jovens e Adultos no Brasil</h1>
+
+        <div class="project-description">
+            <p>Bem-vindo à Linha do Tempo da Educação de Jovens e Adultos no Brasil! Este projeto tem como objetivo retratar os principais eventos e marcos históricos relacionados à EJA ao longo do tempo. Explore nossa linha do tempo para aprender mais sobre esse importante campo da educação.</p>
+        </div>
+        <div class="alunos">
+            <p>Alunos: 
+                <span class="copy-email" data-email="jacson.241136317@discente.uemg.br">Jacson Costa Neves</span> & 
+                <span class="copy-email" data-email="tamyris.1397788@discente.uemg.br">Tamyris Pereira Reis</span>
+            </p>
+        </div>
+        <div class="Docente">
+            <p>Docente: Macilene Vilma Gonçalves Ribeiro</p>
+        </div>
+
+        <!-- Botão de acesso timeline -->
+        <a href="./timeline/eja.html" class="timeline-button">Acessar Linha do Tempo</a>
+    </div>
+
+    <!-- Botão de área apresentação -->
+    <a href="./privado/Apresentação.html" class="apresentação">
+        <!-- Sinal de exclamação dentro da bolinha -->
+        !
+    </a>
+
+    <!-- Integração do VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <!-- Seus scripts JavaScript aqui -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyEmails = document.querySelectorAll('.copy-email');
+            copyEmails.forEach(function(element) {
+                element.addEventListener('click', function() {
+                    const email = this.getAttribute('data-email');
+                    copyToClipboard(email);
+                    alert('E-mail copiado: ' + email);
+                });
+            });
+        });
+
+        function copyToClipboard(text) {
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+
+</html>
