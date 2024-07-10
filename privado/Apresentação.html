@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJA no Brasil - Privado</title>
+    <link rel="icon" href="../img/logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f1f1f6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .logo-container {
+            position: fixed;
+            top: 20px; /* Distância fixa do topo da tela */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translateX(-50%);
+            z-index: 1; /* Garante que a logo fique acima do conteúdo */
+        }
+
+        .logo {
+            max-width: 150px; /* Largura máxima da logo */
+        }
+        
+        h1 {
+            color: #272424;
+            max-width: 600px;
+        }
+
+        .slogan {
+            margin-bottom: 20px;
+        }
+
+        
+        .timeline-button {
+            display: inline-block;
+            background-color: #be9fe1;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px; /* Espaçamento para o botão de acesso à área privada */
+        }
+
+        .timeline-button:hover {
+            background-color: #8b5ea8;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        /* Novos estilos */
+        .project-description {
+            margin-bottom: 30px;
+            color: #555;
+            max-width: 600px; /* Mesma largura da imagem */
+            margin: 0 auto; /* Centraliza horizontalmente */
+            text-align: justify; /* Justifica o texto */
+        }
+
+        .project-description p {
+            margin: 0;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .project-image {
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin: 0 auto; /* Centraliza horizontalmente */
+        }
+
+        .project-image img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Estilos para a VLibras */
+        [vw] {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        /* Estilos para o formulário de login */
+        .login-form {
+            margin-top: 30px;
+        }
+
+        .login-form input {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .login-form button {
+            background-color: #be9fe1;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #8b5ea8;
+        }
+
+        /* Media query para estilos específicos em dispositivos móveis */
+        @media only screen and (max-width: 600px) {
+            .logo-container {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+
+            .container {
+                margin-top: 40px;
+                margin-bottom: 30px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .project-description p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <a href="../index.html" class="logo-link">
+                <img class="logo" src="../UEMG.png" alt="UEMG Logo">
+            </a>
+        </div>
+        <h1>EJA - Educação de Jovens e Adultos no Brasil</h1>
+
+        <div class="project-description">
+            <p>Este site acessível foi criado com o objetivo de proporcionar uma experiência inclusiva e enriquecedora para todos os usuários, incluindo aqueles com deficiências visuais, graças à integração do VLibras.</p>
+
+            <p>Ao navegar por nossas páginas, você terá acesso a uma linha do tempo interativa que explora marcos importantes da história da EJA no Brasil, desde o início do século XX até os dias atuais. Cada período histórico é acompanhado por informações detalhadas, apresentadas de forma clara e objetiva, para que todos possam compreender e apreciar.</p>
+
+            <p>Além disso, nossa interface foi cuidadosamente projetada para garantir uma experiência de usuário intuitiva e agradável. Os botões de navegação permitem que você avance e retroceda pela linha do tempo com facilidade, enquanto a barra de progresso indica seu progresso e localização na jornada.</p>
+
+            <p>Aproveite sua jornada pela história da EJA no Brasil e explore as conquistas e desafios que moldaram a educação de jovens e adultos em nosso país!</p>
+        </div> 
+
+        <!-- Integração do VLibras -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
+    </div>
+</body>
+</html>
