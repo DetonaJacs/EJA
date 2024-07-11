@@ -158,7 +158,11 @@
 
         <button id="prevBtn" class="icon-btn"><i class="fas fa-arrow-left"></i></button>
         <button id="nextBtn" class="icon-btn"><i class="fas fa-arrow-right"></i></button>
-
+<!-- Player de áudio -->
+       <br> <audio id="background-audio" controls autoplay>
+            <source id="audio-source" src="./music/1.mpeg" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
         <div class="progress-container">
             <div class="progress-bar">
                 <div class="progress-bar-fill" id="progressBarFill"></div>
@@ -267,6 +271,30 @@
             progressBarFill.style.width = `${progress}%`;
             progressText.textContent = `${progress.toFixed(2)}%`;
         }
+ const audio = document.getElementById('background-audio');
+            const audioSource = document.getElementById('audio-source');
+            const playlist = [
+                { src: './music/1.mpeg', label: 'Música 1' },
+                { src: './music/2.mpeg', label: 'Música 2' },
+          
+            ];
+            let currentTrack = 0;
+
+            function playNextTrack() {
+                currentTrack = (currentTrack + 1) % playlist.length;
+                audioSource.src = playlist[currentTrack].src;
+                audio.load();
+                audio.play().catch(error => {
+                    console.log('Autoplay foi impedido: ', error);
+                });
+            }
+
+            audio.addEventListener('ended', playNextTrack);
+
+            // Iniciar o áudio após o carregamento da página
+            audio.play().catch(error => {
+                console.log('Autoplay foi impedido: ', error);
+            });
     </script>
 </body>
 </html>
